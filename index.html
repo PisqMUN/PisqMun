@@ -1620,7 +1620,7 @@ button:active:not([disabled]),.btn-hero:active,.dr-contact:active,.pnav a:active
         <p class="kicker">Fourth Edition, 2027. Theme: The Information War</p>
         <h1 style="max-width:16ch">PISQMUN Delegate Guide</h1>
         <p class="sub">Everything you need for committee, in six interactive pillars. Your progress and written work save on this device.</p>
-        <p class="home-facts">29 and 30, at Pakistan International School Qatar</p>
+        <p class="home-facts">29 and 30 January 2027, at Pakistan International School Qatar</p>
         <div class="home-btns"><a class="btn-hero" href="#P1">Start with Pillar 1</a><a class="btn-hero alt" id="homeContinue" href="#P1" hidden>Continue</a><button type="button" class="btn-hero alt menuopen" id="homeMenu">Open the menu</button></div>
       </div>
       <div class="logo hero-logo home-logo" role="img" aria-label="PISQMUN Fourth Edition logo"></div>
@@ -1993,7 +1993,7 @@ button:active:not([disabled]),.btn-hero:active,.dr-contact:active,.pnav a:active
     <section class="part" id="P2-p7" data-title="Prep Countdown" data-short="2.7">
       <span class="part-num">2.7</span>
       <h2>Prep Countdown</h2>
-      <p class="lead">Enter the conference date and this plan works backwards to tell you what to finish by when. The timings are suggestions.</p>
+      <p class="lead">The conference starts on 29 January 2027, and this plan works backwards to tell you what to finish by when. The timings are suggestions.</p>
       <div class="date-row">
         <label class="f"><span>Conference start date</span><input type="date" data-bind="confDate" id="P2-confDate"></label>
         <p class="left" id="P2-daysLeft" aria-live="polite"></p>
@@ -2822,7 +2822,7 @@ button:active:not([disabled]),.btn-hero:active,.dr-contact:active,.pnav a:active
 var CONFERENCE = {
   "Edition": "4th Edition, PISQMUN 2027",
   "Host": "Pakistan International School Qatar",
-  "Dates": "29 and 30 <span class=\"tbc\">Month waiting for the Secretariat</span>",
+  "Dates": "29 and 30 January 2027",
   "Venue": "Pakistan International School Qatar",
   "Theme": "The Information War"
 };
@@ -3183,7 +3183,7 @@ renderProgress();
 "use strict";
 
 /* The Secretariat can set this as YYYY-MM-DD to fill in the countdown for everyone. */
-var CONFERENCE_DATE="";
+var CONFERENCE_DATE="2027-01-29";
 
 var ROOT=document.getElementById("P2");var $=function(id){return document.getElementById("P2-"+id)};
 function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
@@ -3202,6 +3202,7 @@ try{
   if(raw){var parsed=JSON.parse(raw); if(parsed&&parsed.d&&Array.isArray(parsed.d.topics)&&parsed.d.topics.length===3) store=parsed;}
 }catch(e){saveOK=false}
 var d=store.d,active=0,saveTimer=null;
+if(!d.confDate)d.confDate=CONFERENCE_DATE;
 function saveNow(){
   try{localStorage.setItem(KEY,JSON.stringify(store));saveOK=true}catch(e){saveOK=false}
   var n=$("saveNote");
